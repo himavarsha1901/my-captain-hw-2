@@ -1,0 +1,22 @@
+results={
+   0:'aeroplane',
+   1:'automobile',
+   2:'bird',
+   3:'cat',
+   4:'deer',
+   5:'dog',
+   6:'frog',
+   7:'horse',
+   8:'ship',
+   9:'truck'
+}
+from PIL import Image
+import numpy as np
+im=Image.open("__image_path__")
+# the input image is required to be in the shape of dataset, i.e (32,32,3)
+ 
+im=im.resize((32,32))
+im=np.expand_dims(im,axis=0)
+im=np.array(im)
+pred=model.predict_classes([im])[0]
+print(pred,results[pred])
